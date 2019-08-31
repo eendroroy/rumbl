@@ -10,6 +10,12 @@ defmodule Rumbl.Multimedia do
     Repo.insert!(%Category{name: name}, on_conflict: :nothing)
   end
 
+  def list_alphabetical_categories do
+    Category
+    |> Category.alphabetical()
+    |> Repo.all()
+  end
+
   def list_videos do
     Repo.all(Video)
   end
